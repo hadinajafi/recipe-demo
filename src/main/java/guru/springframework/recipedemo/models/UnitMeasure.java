@@ -1,6 +1,9 @@
 package guru.springframework.recipedemo.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class UnitMeasure {
@@ -9,9 +12,6 @@ public class UnitMeasure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-
-    @OneToOne
-    private Ingredient ingredient;
 
     public Long getId() {
         return id;
@@ -29,11 +29,4 @@ public class UnitMeasure {
         this.description = description;
     }
 
-    public Ingredient getIngredient() {
-        return ingredient;
-    }
-
-    public void setIngredient(Ingredient ingredient) {
-        this.ingredient = ingredient;
-    }
 }
