@@ -15,6 +15,13 @@ public class Notes {
     @Lob
     private String recipeNote;
 
+    public Notes() {}
+
+    public Notes(String note, Recipe recipe){
+        this.recipeNote = note;
+        this.recipe = recipe;
+    }
+
     public Long getId() {
         return id;
     }
