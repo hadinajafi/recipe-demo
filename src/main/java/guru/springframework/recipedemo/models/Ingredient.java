@@ -10,12 +10,31 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany
+    private BigDecimal amount;
+    private String description;
+
+    @ManyToOne
     private Recipe recipe;
 
     @OneToOne(fetch = FetchType.EAGER)
     private UnitMeasure unitOfMeasure;
-    private BigDecimal amount;
+
+    public Ingredient(){}
+
+    public Ingredient(String description, BigDecimal amount, UnitMeasure unitMeasure, Recipe recipe) {
+        this.description = description;
+        this.unitOfMeasure = unitMeasure;
+        this.amount = amount;
+        this.recipe = recipe;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
